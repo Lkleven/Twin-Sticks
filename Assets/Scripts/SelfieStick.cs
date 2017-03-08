@@ -18,7 +18,8 @@ public class SelfieStick : MonoBehaviour {
 	void Update () {
 		armRotation.y += Input.GetAxis ("RHoriz") * panSpeed;
 		armRotation.x += Input.GetAxis ("RVert") * panSpeed;
-
+		armRotation.x = Mathf.Clamp(armRotation.x, 180.01f, 359.99f);
+	
 		transform.position = player.transform.position;
 		transform.rotation = Quaternion.Euler(armRotation);
 	}
